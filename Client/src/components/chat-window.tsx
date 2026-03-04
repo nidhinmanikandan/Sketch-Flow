@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext.jsx";
 
 type Message = {
   id: string;
@@ -100,12 +101,19 @@ const ChatWindow: React.FC = () => {
     await sendToAI(userMessage);
   };
 
+  const { toggleTheme, isDark } = useContext(ThemeContext);
+
+  const handleInputToggle = () => {
+    toggleTheme();
+  };
+
   return (
     <div className="h-full flex flex-col bg-white">
-      
       {/* Header */}
-      <div className="px-4 py-3 border-b shrink-0">
-        <h2 className="font-semibold text-lg tracking-tight fs-6">AI Assistant</h2>
+      <div className={`px-4 py-3 border-b shrink-0 ${isDark ? "dark:border-[#303030]" : "bg-gray-100"}`}>
+        <h2 className="font-semibold text-lg tracking-tight fs-6">
+          AI Assistant
+        </h2>
         <p className="text-xs text-gray-500">Multimodal Enabled</p>
       </div>
 
@@ -150,10 +158,10 @@ const ChatWindow: React.FC = () => {
       </div>
 
       {/* Input */}
-      <div className="p-3 border-t flex items-center gap-2 shrink-0">
+      <div className={`p-3 border-t flex items-center gap-2 shrink-0 ${isDark ? "dark:border-[#303030]" : "bg-gray-100"}`}>
         <button
           onClick={() => fileInputRef.current?.click()}
-          className="p-2 rounded-full bg-gray-100 hover:bg-gray-200"
+          className={`p-2 rounded-full bg-gray-100 hover:bg-gray-200  ${isDark ? "dark:bg-[#303030] dark:border-[#505050]" : "bg-gray-300"}`}
         >
           📎
         </button>
@@ -175,7 +183,9 @@ const ChatWindow: React.FC = () => {
           onChange={(e) => setInput(e.target.value)}
           onPaste={handlePaste}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          className="flex-1 px-4 py-2 rounded-full border focus:ring-2 focus:ring-blue-500 outline-none text-sm"
+          onDoubleClick={handleInputToggle}
+          title="Double-click to toggle theme"
+          className={`flex-1 px-4 py-2 rounded-full border focus:ring-2 focus:ring-blue-500 outline-none text-sm ${isDark ? "dark:bg-[#303030] dark:border-[#505050]" : "bg-gray-300"}`}
         />
 
         <button
