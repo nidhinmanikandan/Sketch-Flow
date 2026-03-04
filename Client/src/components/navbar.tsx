@@ -18,7 +18,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="w-full h-16 bg-white border-b shadow-sm flex items-center justify-between px-6">
+    <header className={`w-full h-16 bg-white border-b ${isDark ? "dark:border-[#303030]" : "bg-gray-100"} shadow-sm flex items-center justify-between px-6`}>
       {/* Left Section */}
       <div className="flex items-center gap-3">
         <div className="bg-blue-500 text-white p-2 rounded-lg">
@@ -67,7 +67,7 @@ const Navbar = () => {
                       className="hidden"
                     />
                     <div
-                      className={`w-10 h-5 rounded-full p-0.5 transition ${isDark ? "bg-blue-600" : "bg-gray-300"}`}
+                      className={`w-10 h-5 rounded-full p-0.5 transition ${isDark ? "bg-blue-600" : "bg-gray-300 "}`}
                     >
                       <div
                         className={`bg-white w-4 h-4 rounded-full transform transition ${isDark ? "translate-x-5" : ""}`}

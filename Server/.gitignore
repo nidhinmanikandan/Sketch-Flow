@@ -2,10 +2,12 @@
 node_modules/
 
 # Logs
+logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
 # Environment variables
 .env
@@ -14,29 +16,58 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# Build folders
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# Build output
 dist/
 build/
-
-# EJS cache (if any)
-*.cache
-
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE/editor files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
 
 # Dependency directories
 jspm_packages/
 
+# TypeScript cache
+*.tsbuildinfo
+
 # Optional npm cache
-.npm/
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VSCode settings (optional)
+.vscode/
+
+# Temporary files
+tmp/
+temp/
+
+# Mac system files
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Desktop.ini
+
+# Editor directories
+.idea/
+
+# EJS cache (if any)
+*.cache
+
+# IDE/editor files
+*.sublime-project
+*.sublime-workspace
 
 # Optional REACT files
-coverage/
 *.tgz
