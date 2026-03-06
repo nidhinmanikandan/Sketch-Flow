@@ -312,6 +312,9 @@ export default function DrawingCanvas() {
             <IoMdTrash size="1.2rem" />
           </button>
         </div>
+        <button className="p-3 ml-5 rounded-lg bg-blue-600 text-white-600">
+          Analyse Diagram
+        </button>
       </div>
 
       {/* CANVAS AREA */}
